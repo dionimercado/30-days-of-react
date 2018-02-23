@@ -5,7 +5,7 @@ Over the next 30 days, I'll walk through everything I need to know to work with 
 
 ## List of Chapters
 - [x] [Day 1 - What is React?](https://www.fullstackreact.com/30-days-of-react/day-1/)
-- [ ] [Day 2 - What is JSX?](https://www.fullstackreact.com/30-days-of-react/day-2/)
+- [x] [Day 2 - What is JSX?](https://www.fullstackreact.com/30-days-of-react/day-2/)
 - [ ] [Day 3 - Our First Components](https://www.fullstackreact.com/30-days-of-react/day-3/)
 - [ ] [Day 4 - Complex Components](https://www.fullstackreact.com/30-days-of-react/day-4/)
 - [ ] [Day 5 - Data-Driven](https://www.fullstackreact.com/30-days-of-react/day-5/)
