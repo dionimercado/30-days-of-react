@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Day 1 &mdash; 30 Days of React</title>
+
+    <!-- Script tags including React -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.1/react.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.1/react-dom.min.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <link rel="stylesheet" href="./timeline.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+
+</head>
+<body>
+    <div class="demo">
+        <div id="app"></div>
+    </div>
+    <script type="text/babel">
+       class App extends React.Component {
+           render() {
+               return(
+                    <div className="notificationsFrame">
+                        <div className="panel">
+                            <Header />
+                            <Content />
+                        </div>
+                    </div>
+               )
+           }
+       }
+
+       class Header extends React.Component {
+           render() {
+               return(
+                   <div className="header">
+                        
+                        <div className="fa fa-bars menuIcon"></div>
+
+                        <span className="title">Timeline</span>
+
+                        <input
+                            type="text"
+                            className="searchInput"
+                            placeholder="Search..." />
+
+                        <div className="fa fa-search searchIcon"></div>
+
+                   </div>
+               )
+           }
+       }
+
+       class Content extends React.Component {
+           constructor() {
+               super();
+               this.items = [
+                    {
+                        avatar: "http://www.croop.cl/UI/twitter/images/doug.jpg",
+                        name: "Doug",
+                        time: "An hour ago",
+                        text: "Ate lunch",
+                        commentCount: 2
+                    },
+                    {
+                        avatar: "http://www.croop.cl/UI/twitter/images/doug.jpg",
+                        name: "Meow",
+                        time: "30 minutes ago",
+                        text: "Washed dishes",
+                        commentCount: 5
+                    },
+                    {
+                        avatar: "http://www.croop.cl/UI/twitter/images/doug.jpg",
+                        name: "Grrrr",
+                        time: "10 minutes ago",
+                        text: "Went to bed",
+                        commentCount: 1
+                    }
+                ]
+           }
+           render() {
+               return(
+                   <div className="content">
+                        <div className="line"></div>
+                        { this.items.map( item => <TimelineItem 
+                            avatar={item.avatar} 
+                            name={item.name} 
+                            time={item.time} 
+                            text={item.text} 
+                            commentCount={item.commentCount} />
+                        ) }
+                   </div>
+               )
+           }
+       }
+
+       const TimelineItem = props => {
+            return(
+                <div className="item">
+                    <div className="avatar">
+                        <img
+                        alt={name}
+                        src={props.avatar} />
+                        {props.name}
+                    </div>
+        
+                    <span className="time">{props.time}</span>
+                    <p>{props.text}</p>
+                    <div className="commentCount">{props.commentCount}</div>
+                </div>
+            )
+       }
+
+       ReactDOM.render(<App />, document.querySelector('#app'));
+    </script>
+</body>
+</html>
