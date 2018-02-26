@@ -176,6 +176,7 @@ body {
   vertical-align: top;
   overflow: hidden;
   left: -49px;
+  text-indent: -9999px;
 }
 .demo .notificationsFrame .content .item .avatar img {
   width: 100%;
