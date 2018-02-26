@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Day 5 &mdash; 30 Days of React</title>
+
+    <!-- Script tags including React -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.1/react.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.1/react-dom.min.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <link rel="stylesheet" href="./timeline.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+
+</head>
+<body>
+    <div class="demo">
+        <div id="app"></div>
+    </div>
+    <script type="text/babel">
+        
+
+        const App = () => {            
+            const activities = [
+                {
+                    timestamp: new Date().getTime(),
+                    text: "Ate lunch",
+                    user: {
+                        id: 1,
+                        name: 'Nate',
+                        avatar: "http://www.croop.cl/UI/twitter/images/doug.jpg"
+                    },
+                    comments: [
+                        { from: 'Ari', text: 'Me too!' }
+                    ]
+                }
+            ];
+            return(
+                <div className="notificationsFrame">
+                    <div className="panel">
+                        <Header title="Timeline" />
+                        <Header title="Profile" />
+                        <Header title="Settings" />
+                        <Header title="Chat" />
+                        <Content activities={activities} />
+                    </div>
+                </div>
+            )
+        }
+
+       const Header = ({title}) => {
+               return(
+                   <div className="header">
+                        <div className="menuIcon">
+                            <div className="dashTop"></div>
+                            <div className="dashBottom"></div>
+                            <div className="circle"></div>
+                        </div>
+                        {/*<div className="fa fa-bars menuIcon"></div>*/}
+
+                        <span className="title">{title}</span>
+
+                        <input
+                            type="text"
+                            className="searchInput"
+                            placeholder="Search..." />
+
+                        <div className="fa fa-search searchIcon"></div>
+
+                   </div>
+               )
+       }
+
+       const Content = props => {
+
+               /*[
+                    {
+                        avatar: "http://www.croop.cl/UI/twitter/images/doug.jpg",
+                        name: "Doug",
+                        time: "An hour ago",
+                        text: "Ate lunch",
+                        commentCount: 2
+                    },
+                    {
+                        avatar: "http://www.croop.cl/UI/twitter/images/doug.jpg",
+                        name: "Meow",
+                        time: "30 minutes ago",
+                        text: "Washed dishes",
+                        commentCount: 5
+                    },
+                    {
+                        avatar: "http://www.croop.cl/UI/twitter/images/doug.jpg",
+                        name: "Grrrr",
+                        time: "10 minutes ago",
+                        text: "Went to bed",
+                        commentCount: 1
+                    }
+                ]*/
+            return(
+                <div className="content">
+                    <div className="line"></div>
+                    { props.activities.map( item => {
+                        console.log(item);
+                        return (
+                            <TimelineItem 
+                            avatar={item.user.avatar} 
+                            name={item.user.name} 
+                            time={item.timestamp} 
+                            text={item.text} 
+                            commentCount={item.comments.length} />
+                        )
+                    }
+                    ) }
+                </div>
+            )
+       }
+
+       const TimelineItem = props => {
+            return(
+                <div className="item">
+                    <div className="avatar">
+                        <img
+                            alt={props.name}
+                            src={props.avatar} 
+                        />
+                        {props.name}
+                    </div>
+                    <span className="time">{props.time}</span>
+                    <p>{props.text}</p>
+                    <div className="commentCount">{props.commentCount}</div>
+                </div>
+            )
+       }
+
+       ReactDOM.render(<App />, document.querySelector('#app'));
+    </script>
+</body>
+</html>
