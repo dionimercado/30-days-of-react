@@ -9,7 +9,7 @@ Over the next 30 days, I'll walk through everything I need to know to work with 
 - [x] [Day 3 - Our First Components](https://www.fullstackreact.com/30-days-of-react/day-3/)
 - [x] [Day 4 - Complex Components](https://www.fullstackreact.com/30-days-of-react/day-4/)
 - [x] [Day 5 - Data-Driven](https://www.fullstackreact.com/30-days-of-react/day-5/)
-- [ ] [Day 6 - State](https://www.fullstackreact.com/30-days-of-react/day-6/)
+- [x] [Day 6 - State](https://www.fullstackreact.com/30-days-of-react/day-6/)
 - [ ] [Day 7 - Lifecycle Hooks](https://www.fullstackreact.com/30-days-of-react/day-7/)
 - [ ] [Day 8 - Packaging and Proptypes](https://www.fullstackreact.com/30-days-of-react/day-8/)
 - [ ] [Day 9 - Styles](https://www.fullstackreact.com/30-days-of-react/day-9/)
